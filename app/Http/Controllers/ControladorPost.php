@@ -46,8 +46,9 @@ class ControladorPost extends Controller
         $post->imagen = $request->imagen;
         $post->likes = 0;
 
-        $post->save();
-
+        if($usuario->rol=='admin'){
+            $post->save();
+        }
         return view('welcome');
     }
 

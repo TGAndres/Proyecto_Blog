@@ -18,7 +18,6 @@
             <ul>
                 <li><a href="{{ route('welcome') }}">Home</a></li>
                 <li><a href="{{ route('categorias') }}">Categorias</a></li>
-                <li><a href="{{ route('verPublis') }}">Posts</a></li>
                 <li><a href="{{ route('postear') }}">Make Post</a></li>
             </ul>
         </nav>
@@ -37,6 +36,9 @@
         <div class="carousel-caption d-none d-md-block">
             <h3>Destinos Turísticos</h3>
             <p>Tips</p>
+            <button class="btn">
+                <a href="{{ route('verPublis',['categoria' => 'Destinos','publi' => '8']) }}">Ver Posts</a>
+            </button>
         </div>
         </div>
 
@@ -45,6 +47,9 @@
         <div class="carousel-caption d-none d-md-block">
             <h3>Comida</h3>
             <p>Mejores restaurantes</p>
+            <button class="btn">
+                <a href="{{ route('verPublis',['categoria' => 'Comida' , 'publi' => '6']) }}">Ver Posts</a>
+            </button>
         </div>
         </div>
     </div>

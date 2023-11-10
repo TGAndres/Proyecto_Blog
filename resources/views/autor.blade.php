@@ -32,7 +32,6 @@
             <ul>
                 <li><a href="{{ route('welcome') }}">Home</a></li>
                 <li><a href="{{ route('categorias') }}">Categorias</a></li>
-                <li><a href="{{ route('verPublis') }}">Posts</a></li>
                 <li><a href="{{ route('postear') }}">Make Post</a></li>
             </ul>
         </nav>

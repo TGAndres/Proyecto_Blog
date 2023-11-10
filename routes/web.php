@@ -26,6 +26,6 @@ Route::get('/autor', [App\Http\Controllers\ControladorPaginas::class, 'getAutor'
 
 Route::get('/postear', [App\Http\Controllers\ControladorPaginas::class, 'getPostear'])->name('postear');
 
-Route::get('/verPublis', [App\Http\Controllers\ControladorPaginas::class, 'getVerPublis'])->name('verPublis');
+Route::get('/verPublis/{categoria}{publi}', [App\Http\Controllers\ControladorPaginas::class, 'getVerPublis'])->name('verPublis');
 
 Route::post('/posts.store', [App\Http\Controllers\ControladorPost::class, 'store'])->name('posts.store');

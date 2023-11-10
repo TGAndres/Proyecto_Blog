@@ -37,10 +37,16 @@
     <div class="container post-container">
         <h1>Nuevo Post</h1>
 
-        <form action="procesar_post.php" method="post" enctype="multipart/form-data">
+        <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="form-group">
             <label for="titulo">Título:</label>
             <input type="text" class="form-control" id="titulo" name="titulo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="titulo">Categoria:</label>
+            <input type="text" class="form-control" id="categoria" name="categoria" required>
         </div>
 
         <div class="form-group">

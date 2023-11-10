@@ -29,8 +29,6 @@
     <ol class="carousel-indicators">
         <li data-target="#theCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#theCarousel" data-slide-to="1"></li>
-        <li data-target="#theCarousel" data-slide-to="2"></li>
-        <li data-target="#theCarousel" data-slide-to="3"></li>
     </ol>
 
     <div class="carousel-inner" role="listbox">
@@ -41,20 +39,7 @@
             <p>Tips</p>
         </div>
         </div>
-        <div class="item">
-        <img src="/img/four.png" alt="fotografia">
-        <div class="carousel-caption d-none d-md-block">
-            <h3>Fotografía</h3>
-            <p>Técnicas</p>
-        </div>
-        </div>
-        <div class="item">
-        <img src="/img/six.png" alt="pintura">
-        <div class="carousel-caption d-none d-md-block">
-            <h3>Alojamientos</h3>
-            <p>Lugares</p>
-        </div>
-        </div>
+
         <div class="item">
         <img src="/img/seven.png" alt="diseno">
         <div class="carousel-caption d-none d-md-block">

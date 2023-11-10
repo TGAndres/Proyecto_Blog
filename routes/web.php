@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/welcome', [App\Http\Controllers\ControladorPaginas::class, 'getWelcome'])->name('welcome');
+
+Route::get('/', [App\Http\Controllers\ControladorPaginas::class, 'getWelcome'])->name('welcome');
+
+Route::get('/categorias', [App\Http\Controllers\ControladorPaginas::class, 'getCategorias'])->name('categorias');
+
+Route::get('/autor', [App\Http\Controllers\ControladorPaginas::class, 'getAutor'])->name('autor');
+
+Route::get('/postear', [App\Http\Controllers\ControladorPaginas::class, 'getPostear'])->name('postear');
+
+Route::get('/verPublis', [App\Http\Controllers\ControladorPaginas::class, 'getVerPublis'])->name('verPublis');

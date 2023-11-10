@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            /*
+                AQUÍ MODIFICAR LO NECESARIO QUE SE NECESITE SABER DE LOS USUARIOS
+            */
         });
     }
 

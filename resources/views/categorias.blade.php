@@ -37,7 +37,7 @@
             <h3>Destinos Turísticos</h3>
             <p>Tips</p>
             <button class="btn">
-                <a href="{{ route('verPublis',['categoria' => 'Destinos','publi' => '8']) }}">Ver Posts</a>
+                <a href="{{ route('verPublis',['categoria' => 'Destinos','publi' => 8]) }}">Ver Posts</a>
             </button>
         </div>
         </div>
@@ -48,7 +48,7 @@
             <h3>Comida</h3>
             <p>Mejores restaurantes</p>
             <button class="btn">
-                <a href="{{ route('verPublis',['categoria' => 'Comida' , 'publi' => '6']) }}">Ver Posts</a>
+                <a href="{{ route('verPublis',['categoria' => 'Comida' , 'publi' => 6]) }}">Ver Posts</a>
             </button>
         </div>
         </div>

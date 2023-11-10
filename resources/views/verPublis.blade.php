@@ -25,17 +25,19 @@
             <div class="grid-container blogs-main-new">
                 <h3>Recent</h3>
                 <div class="blogs-news-img-container">
-                    <img src="/img/two.png" alt="" />
+                    <img src="data:image/jpeg;base64,{{ base64_encode($publi->imagen) }}" alt="" style="width: 30em;"/>
                 </div>
                 <div class="blogs-news-info-container">
-                    <h2>Titulo del Blogpost</h2>
+                    <h2>{{$publi->titulo}}</h2>
                     <p>
-                        Texto de intro. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Vitae ut natus voluptatum sint voluptatem, libero porro
-                        ratione. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Vitae ut natus voluptatum sint voluptatem, libero porro ratione
+                        {{
+                            $publi->contenido
+                        }}
                     </p>
-                    <a href="blog.html" class="blogs-button">Leer más</a>
+                    <a href="{{ route('autor',['autor' => $publi->user_id]) }}"> Autor </a>
+                    <br>
+                    <br>
+                    <a href="{{ route('verPublis',['categoria' => $categoria , 'publi' => $publi->id ]) }}" class="blogs-button">Leer más</a>
                     <p></p>
                     <section class="post-card">
                         <button class="like-button">Like</button>
@@ -45,19 +47,21 @@
             </div>
         </section>
         <section class="blogs-post-container">
-            <div class="grid-container">
+            <div class="grid-container ">
                 <h3 class="blogs-post-titulo-post">Último Blogpost</h3>
                 @foreach($posts as $post)
                     <article class="post-container">
-                        <img src="/img/three.png" alt="" />
-                        <h3>Titulo del Blogpost</h3>
+                        <img src="data:image/jpeg;base64,{{ base64_encode($post->imagen) }}" alt="" style="width: 25em;" />
+                        <h3>{{$post->titulo}}</h3>
                         <p>
-                            Texto de intro. Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Vitae ut natus voluptatum sint voluptatem, libero porro
-                            ratione. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Vitae ut natus voluptatum sint voluptatem, libero porro ratione
+                            {{
+                                $post->contenido
+                            }}
                         </p>
-                        <a href="blog.html" class="blogs-button">Leer más</a>
+                        <a href="{{ route('autor',['autor' => $post->user_id]) }}"> Autor </a>
+                        <br>
+                        <br>
+                        <a href="{{ route('verPublis',['categoria' => $categoria , 'publi' => $post->id]) }}" class="blogs-button">Leer más</a>
                         <p></p>
                         <section class="post-card">
                             <button class="like-button">Like</button>

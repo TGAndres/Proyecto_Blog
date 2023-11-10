@@ -14,13 +14,16 @@ class ControladorPaginas extends Controller
         return view('welcome');
     }
 
-    public function getVerPublis($categoria, $publi){
+    public function getVerPublis($categoria, $num){
         if($categoria=='Destinos'){
             $posts = Post::where('categoria', 'Destinos')->get();
         }else{
             $posts = Post::where('categoria', 'Comida')->get();
         }
-        return View::make('verPublis')->with('posts',$posts);
+        $publi = $posts->first(function ($post) use ($num) {
+            return $post->id == $num;
+        });
+        return View::make('verPublis')->with('posts',$posts)->with('publi',$publi)->with('categoria',$categoria);
     }
 
     public function getPostear(){
@@ -31,8 +34,11 @@ class ControladorPaginas extends Controller
         return view('categorias');
     }
 
-    public function getAutor(){
-        return view('autor');
+    public function getAutor($num){
+        $autores = User::where('rol', 'admin')->get();
+        $autor = $autores->first(function ($autor) use ($num) {
+            return $autor->id == $num;
+        });
+        return View::make('autor')->with('autor',$autor);
     }
-
 }

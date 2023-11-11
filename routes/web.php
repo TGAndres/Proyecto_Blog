@@ -29,3 +29,7 @@ Route::get('/postear', [App\Http\Controllers\ControladorPaginas::class, 'getPost
 Route::get('/verPublis/{categoria}/{publi}', [App\Http\Controllers\ControladorPaginas::class, 'getVerPublis'])->name('verPublis');
 
 Route::post('/posts.store', [App\Http\Controllers\ControladorPost::class, 'store'])->name('posts.store');
+
+Route::post('/posts.update/{publi}', [App\Http\Controllers\ControladorPost::class, 'update'])->name('posts.update');
+
+Route::post('/posts.update2/{publi}', [App\Http\Controllers\ControladorPost::class, 'update2'])->name('posts.update2');

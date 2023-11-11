@@ -5,6 +5,7 @@ use App\Models\Post;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class ControladorPost extends Controller
 {
@@ -71,9 +72,45 @@ class ControladorPost extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $posts = Post::all();
+        $registro = $posts->first(function ($registro) use ($id) {
+            return $registro->id == $id;
+        });
+
+        if($registro->categoria=='Destinos'){
+            $posts2 = Post::where('categoria', 'Destinos')->get();
+        }else{
+            $posts2 = Post::where('categoria', 'Comida')->get();
+        }
+
+        $json = json_decode($registro->comentarios,true);
+        $usuario = Auth::user();
+        $json[$usuario->name] = ($usuario->name).' : '.($request->comentario);
+        $jsonM=json_encode($json);
+        $registro->update(['comentarios'=>$jsonM]);
+
+        return View::make('verPublis')->with('posts',$posts2)->with('publi',$registro)->with('categoria',$registro->categoria);
+    }
+
+    public function update2(Request $request, string $id){
+        $posts = Post::all();
+        $registro = $posts->first(function ($registro) use ($id) {
+            return $registro->id == $id;
+        });
+
+        if($registro->categoria=='Destinos'){
+            $posts2 = Post::where('categoria', 'Destinos')->get();
+        }else{
+            $posts2 = Post::where('categoria', 'Comida')->get();
+        }
+
+        $maslikes= $registro->likes +1;
+
+        $registro->update(['likes'=>$maslikes]);
+
+        return View::make('verPublis')->with('posts',$posts2)->with('publi',$registro)->with('categoria',$registro->categoria);
     }
 
     /**

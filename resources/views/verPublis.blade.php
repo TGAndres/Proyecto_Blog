@@ -38,11 +38,30 @@
                     <br>
                     <br>
                     <a href="{{ route('verPublis',['categoria' => $categoria , 'publi' => $publi->id ]) }}" class="blogs-button">Leer más</a>
-                    <p></p>
-                    <section class="post-card">
-                        <button class="like-button">Like</button>
-                        <button class="comment-button">Comentar</button>
+                    <p>
+                        @foreach(json_decode($publi->comentarios) as $comment)
+                        <div class="container mt-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text">{{$comment}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </p>
+                    <section>
+                        <form action="{{ route('posts.update',['publi' => $publi->id]) }}" class="post-card" method="post" enctype="multipart/form-data" style="display: flex; justify-content: space-between; align-items: center; flex-grow: 1; margin-left: 10px; margin-right: 15px;">
+                            @csrf
+                            <input type="text" class="form-control" id="comentario" name="comentario" style="width: 70%;" required>
+                            <button type="submit" class="btn btn-primary comment-button">Publicar</button>
+                        </form>
+                        <form action="{{ route('posts.update2',['publi' => $publi->id]) }}" class="post-card" method="post" enctype="multipart/form-data" style="display: flex; justify-content: space-between; align-items: center; flex-grow: 1; margin-left: 10px; margin-right: 15px;">
+                            @csrf
+                            <button type="submit" class="like-button">Like</button>
+                            <span> {{$publi->likes}}</span>
+                        </form>
                     </section>
+
                 </div>
             </div>
         </section>
@@ -62,11 +81,6 @@
                         <br>
                         <br>
                         <a href="{{ route('verPublis',['categoria' => $categoria , 'publi' => $post->id]) }}" class="blogs-button">Leer más</a>
-                        <p></p>
-                        <section class="post-card">
-                            <button class="like-button">Like</button>
-                            <button class="comment-button">Comentar</button>
-                        </section>
                     </article>
             
                 @endforeach

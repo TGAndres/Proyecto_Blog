@@ -38,28 +38,19 @@
     </header>
     <div class="container profile-container">
         <div class="text-center">
-        <img src="ruta/a/tu/foto.jpg" alt="Foto de perfil" class="profile-image">
-        <h1>Nombre del Autor</h1>
-        <p class="lead">Descripción corta del autor</p>
+        <img src="data:image/jpeg;base64,{{ base64_encode($autor->imagen) }}" alt="Foto de perfil" class="profile-image">
+        <h1>{{$autor->name}}</h1>
+        <p class="lead">{{$autor->nacionalidad}} , {{$autor->anio_nacimiento}}</p>
         </div>
 
         <hr>
 
         <div>
         <h2>Sobre Mí</h2>
-        <p>Texto descriptivo sobre el autor y su experiencia en el campo.</p>
+        <p>{{$autor->descripcion}}.</p>
         </div>
 
         <hr>
-
-        <div>
-        <h2>Redes Sociales</h2>
-        <p>
-            <a href="https://twitter.com/tuusuario" target="_blank">Twitter</a> |
-            <a href="https://linkedin.com/in/tuperfil" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
-        </p>
-        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
